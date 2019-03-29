@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body
+			{
+				margin: 0;
+			}
+			.control{
+				max-width: 1200px;
+                                                                margin:auto;
+			}
+			.head_img {  
+				height: 850px;
+				width: 1200px;
+				background-image: url("http://csci571.com/hw/hw3/images/snow1.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                position: relative;
+                background-position: center;
+                background-size: cover;
+                z-index: -1;
+			}
+
+			.last{
+				top:2350px;
+				height: 920px;
+				width: 1200px;
+				background-image: url("http://csci571.com/hw/hw3/images/snow6.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                position: absolute;
+                background-position: center;
+                background-size: cover;
+                z-index: -1;
+			}
+
+			.mid_img {
+				position: absolute;
+				top:850px;
+				height:1500px;
+				width:1100px;
+				background-size: cover;
+				background-position: center;
+				z-index: 0;
+			}
+
+			.sc {
+				position:absolute;
+				font-family: Tw Cen MT,serif;
+				color: white;
+				left:135px;
+				top:35px;
+				letter-spacing: 4px;
+				word-spacing: 15px;
+				font-size: 25px;
+				font-weight: bold;
+				margin: 0;
+			}
+
+			.nav {
+				position: absolute;
+				left: 600px;
+				top: 25px;
+				margin: 0;
+				padding: 0;
+			}
+
+			.nav li {
+				display: inline-block;
+				font-family: Tw Cen MT,serif;
+				color: white;
+				letter-spacing: 2px;
+				font-size: 10px;
+				padding: 15px;
+				font-weight: bold;
+			}
+
+			.title {
+				text-align: center;
+				font-family: Tw Cen MT,serif;
+				position: absolute;
+				top:220px;
+				font-size: 80px;
+				left:360px;
+				right:400px;
+				color: white;
+				font-weight: bold;
+			}
+
+			.txt {
+				text-align: center;
+				font-family: Tw Cen MT,serif;
+				position: absolute;
+				letter-spacing: 1px;
+				top:480px;
+				left:350px;
+				right:350px;
+				color: white;
+				line-height: 1.8;
+			}
+
+			.button {
+				position: absolute;
+				top:620px;
+				left:520px;
+				right:520px;
+				background-color: white;
+				border: none;
+				font-family: Tw Cen MT,serif;
+				color: #000000;
+				text-align: center;
+				font-size: 10px;
+				padding: 20px 30px;
+				font-weight: bold;
+			}
+			.mid_img_1{
+				position: relative;
+				top:80px;
+			}
+			.mid_img_2{
+				position: relative;
+				top:60px;
+			}
+			.image{
+				position: relative;
+				left:75px;
+				right:80px;
+				float:left;
+				width: 44%;
+				padding:20px;
+			}
+
+			.mid_img_1::after{
+ 				content: "";
+				clear: both;
+				display: table;
+			}
+
+			.mid_img_2::after{
+ 				content: "";
+				clear: both;
+				display: table;
+			}
+
+			.mid_txt{
+				position: absolute;			
+				top: 1180px;
+				left: 340px;
+				right:250px;
+				text-align: left;
+				font-size: 15px;
+				line-height: 1.8;
+			}
+
+			.last_txt{
+				position: absolute;
+				top:430px;
+				color:white;
+				text-align: center;
+				left:280px;
+				right:280px;
+				line-height: 1.8;
+				letter-spacing: 1px;
+				font-size: 19px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class = "control">
+		<div class= "head_img">
+			<h3 class = "sc">SNOWBORAD CENTRAL</h3>
+			<ul class = "nav">
+				<li>HOME</li>
+				<li>ABOUT</li>
+				<li>GELLERY</li>
+				<li>JOURNAL</li>
+				<li>CONTACT</li>
+			</ul>
+			<div class = "title">Bend the Mind</div>
+			<div class = "txt"> James Jantz is a snowboarder living in Jackson Hole. WY and riding around the world. Lorem ipsum dolor sit amet consectetuer adipiscing elit nam nibn. Nunc varius facilisis eros sed erat in in velit quis arcu ornare laoreet.</div>
+			<button class = "button">LEARN MORE</button>
+		</div>
+
+		<div class = "mid_img">
+			<div class = "mid_img_1">
+				<div class = "image">
+					<img src="http://csci571.com/hw/hw3/images/snow2.jpg" width="500px" height="500px">
+				</div>
+				<div class = "image">
+					<img src="http://csci571.com/hw/hw3/images/snow3.jpg" width="500px" height="500px">
+				</div>
+			</div>
+
+			<div class = "mid_img_2">
+				<div class = "image">
+					<img src="http://csci571.com/hw/hw3/images/snow4.jpg" width="500px" height="500px">
+				</div>
+				<div class = "image">
+					<img src="http://csci571.com/hw/hw3/images/snow5.jpg" width="500px" height="500px">
+				</div>
+			</div>
+			<div class = "mid_txt">
+				<p>Lorem ipsum dolor ait amet consectetuer adipiscing elit nam nibn. Nunc varius facilisis eros sed erat in in velit quis arcu ornare laoreet. Curabitur adipiscing lutus massa. Integerut purus ac augue commodo. Nunc nec mi eu justo tempor consectetuer. Etiam vitae nisi. In dignissim lacus ut ante.</p>
+				<p>Photography courtesy of Cari Sutter.</p>
+			</div>
+		</div>
+
+		<div class = "last">
+			<div class = "last_txt">
+				Lorem ipsum dolor ait amet consectetuer adipiscing elit nam nibn. Nunc varius facilisis eros sed erat in in velit quis arcu ornare laoreet
+			</div>
+		</div>
+	</div>
+	</body>
+
+</html>

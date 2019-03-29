@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework4</title>
+    <script type="text/javascript">
+        var jsonDoc;
+        var html_text;
+        function viewjson(url){
+            this.URL = url;
+            jsonDoc = loadjson(URL);
+            jsonDoc.onload=generateHTML(jsonDoc);
+            if(html_text==null||html_text==""){
+                return alert("No films!");
+            }
+            hWin = window.open("", "Assignment4", "height=1200,width=1025");
+            hWin.document.write(html_text);
+            hWin.document.close();
+            
+                  
+        }
+        function loadjson(url) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", url, false);
+            xmlhttp.send();
+            if(xmlhttp.readyState==4){
+                if(xmlhttp.status==404){
+                    return alert("The file doesn't exist"); 
+                }
+            }
+            jsonDoc = JSON.parse(xmlhttp.responseText);
+            return jsonDoc; 
+        }
+        function generateHTML(jsonDoc){
+            root = jsonDoc.documentElement;
+        
+            html_text = "<html><head><title>parse result</title></head><body>";
+            html_text += "<table border='2'>";
+            header = jsonDoc.Mainline.Table.Header.Data;
+            company = jsonDoc.Mainline.Table.Row;     
+            if(company.length==0) {
+                 return html_text="";
+            }
+            html_text += "<tbody>";
+            html_text += "<tr>";
+            for(i = 0;i<header.length;i++){
+                head = header[i];
+                html_text += "<th>" +head+"</th>";
+            }
+            html_text += "</tr>";
+            for(i = 0;i<company.length;i++){
+                companynodelist = company[i];
+                html_text+="<tr>";
+                var companykeys = Object.keys(companynodelist);
+                for(j=0;j<companykeys.length;j++){
+                    property = companykeys[j];
+                    if(companykeys[j]=="Hubs"){
+                        html_text+="<td>";
+                        var hub = companynodelist[property].Hub;
+                        html_text+="<ul>";
+                        for(k=0;k<hub.length;k++){
+                            if(k==0){
+                                html_text+="<li style='font-weight:bold'>";
+                                html_text+=hub[k];
+                                html_text+="</li>";
+                            }
+                            else{
+                                html_text+="<li>";
+                                html_text+=hub[k];
+                                html_text+="</li>";
+                            }
+                        }
+                        html_text+="</td>";
+                    }
+                    else if(companykeys[j]=="Logo"){
+                        html_text+="<td><img src='"+companynodelist[property]+"'width=200 height=150></td>";
+                    }
+                    else if(companykeys[j]=="Wiki Page"){
+                        html_text+="<td><a href='"+companynodelist[property]+"' >"+companynodelist[property]+"</a></td>";
+                    }
+                    else{
+                        html_text+="<td>"+companynodelist[property]+"</td>";
+                    }
+                }
+                html_text+="</tr>";
+            }
+            html_text += "</tbody>";
+            html_text += "</table>";
+            html_text += "</body></html>";
+        }
+        function generatenewhtml(jsonDoc){
+            html_text = "";
+        }
+     
+        function validateform() {
+            var input = document.forms["myform"]["URL"].value;
+            if(input==null||input==""){
+                alert("Input is empty");
+            }
+            else viewjson(input);
+        }
+    </script>
+    <style>
+        div.layout{
+            margin-top: 120px;
+            margin-left: 450px;
+        }
+        input.form{
+            margin-left:65px;
+        }
+        input.button{
+            margin-left: 110px;
+        }
+    </style>
+</head>
+
+<body>
+        <div class="layout">
+        <h3>Enter URL for Highest-grossing films List JSON File</h3><br />
+        <form name="myform"  method="POST">
+        <input class="form" type="text" name="URL" maxlength="255" size="27" />
+        <br/>
+        <br/>
+        <input class="button" type="button" name="submit" value="Submit Query" onclick="validateform()" />
+        </form>
+        </div>
+</body>
+
+</html>
